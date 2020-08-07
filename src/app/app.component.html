@@ -1,0 +1,29 @@
+
+<!--                 navBar             -->
+
+<div class="nav-container"  >
+  <mat-toolbar color="primary" class="nav-toolbar">
+    <button mat-icon-button (click)="snav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <h1 class="nav-app-name"> FREEWATT </h1>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="nav-sidenav-container">
+    <mat-sidenav #snav  fixedTopGap="56">
+      <mat-nav-list>
+        
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+    
+  </mat-sidenav-container>
+</div>
+
+
+
+
+
