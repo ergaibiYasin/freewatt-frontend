@@ -13,7 +13,14 @@ export class AddProductDialogComponent implements OnInit {
   
   addProductForm: FormGroup;
   submitted = false;
-  product= {};
+  product= {
+    productID : '',
+    productName : '',
+    price : '',
+    description : '',
+    categoryID : '',
+    commentaire : ''
+  };
   
   constructor(private formBuilder : FormBuilder, private productService: ProductsService, private dialogRef: MatDialogRef<AddProductDialogComponent>,
     
