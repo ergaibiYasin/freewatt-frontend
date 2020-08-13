@@ -1,0 +1,16 @@
+<div class="nl-Dialog--header">
+	<h2 mat-dialog-title>{{content.title}}</h2>
+</div>
+<form novalidate>
+	<mat-dialog-content>{{content.message}}</mat-dialog-content>
+	<mat-dialog-actions fxLayout="row" fxLayoutAlign="end center">
+		<!-- <button *ngIf="!content.justOk" mat-flat-button color="accent" class="button-icon mr-16" (click)="close()">
+			<mat-icon class="icon s-24" style="color: white;">{{ iconsMap.get("VALIDER").value }}</mat-icon>
+			Valider
+		</button> -->
+		<button *ngIf="!content.justOk" mat-flat-button class="button-icon mr-16" (click)="cancel()">
+			Annuler
+		</button>
+		<button *ngIf="!content.justOk" mat-flat-button color="accent" class="mr-16" (click)="close()">Ok</button>
+	</mat-dialog-actions>
+</form>

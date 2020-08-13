@@ -23,4 +23,14 @@ export class ProductsService {
   getAllProducts() : Observable<any>{
     return this.http.get(this.url + "/allProducts");
   }
+
+  addOrUpdateProduct(data) : Observable<any>{
+    return this.http.post(this.url + "/addOrUpdate", data);
+  }
+  
+  deleteProduct(id) : Observable<any>{
+    return this.http.delete(this.url + "/del/" + id);
+  }
+  
+  
 }

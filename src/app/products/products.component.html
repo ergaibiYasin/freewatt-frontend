@@ -1,5 +1,12 @@
 
+<div>
+  <button mat-raised-button (click)="addProduct()" color="primary">Add</button>
+</div>
 
+
+
+
+<!-- Table -->
 
 <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     <!-- productName Column -->
@@ -31,7 +38,30 @@
       <mat-header-cell *matHeaderCellDef> commentaire </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.commentaire}} </mat-cell>
     </ng-container>
+    
+    <!-- Action Column -->
+    <ng-container matColumnDef="action">
+      <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
+      <mat-cell *matCellDef="let element"> 
+
+        <div class="delete button">
+          <button mat-mini-fab color="accent" (click)="deleteProduct(element)" aria-label="delete button">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+        
+        <div class="edit button">
+          <button mat-mini-fab color="accent" (click)="uppdateProduct(element)" aria-label="edit button">
+            <mat-icon>edit</mat-icon>
+          </button>
+        </div>
+
+
+      </mat-cell>
+    </ng-container>
   
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 </mat-table>
+
+
