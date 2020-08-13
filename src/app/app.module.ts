@@ -16,12 +16,21 @@ import { MatIconModule } from '@angular/material/icon';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import {MatTableModule} from '@angular/material/table';
+import { AddProductDialogComponent } from './products/add-product-dialog/add-product-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import {MatFormFieldModule } from '@angular/material/form-field';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { ConfirmationDialogComponent } from './shared/confirmation-dialog/confirmation-dialog.component';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductsComponent,
+    AddProductDialogComponent,
+    ConfirmationDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,6 +45,11 @@ import {MatTableModule} from '@angular/material/table';
     MatListModule,
     MatTableModule,
     HttpClientModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatInputModule,
 
     RouterModule.forRoot([
       { path: 'products', component: ProductsComponent },
