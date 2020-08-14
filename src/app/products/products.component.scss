@@ -1,6 +1,20 @@
 
+.mat-column-description {
+  padding: 10px;
+  white-space: unset !important;
+  flex: 0 0 28% !important;
+  word-break: break-word;
+}
 
-table {
-    width: 100%;
-  }
-  
+.mat-column-commentaire {
+  padding: 10px;
+  white-space: unset !important;
+  flex: 0 0 28% !important;
+  word-break: break-word;
+}
+
+.action {
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
