@@ -33,5 +33,15 @@
        `<body>` to be our scrolling element for mobile layouts. */
     flex: 1 0 auto;
   }
+
+  mat-icon{
+    padding-right: 10px;
+  }
   
+  mat-sidenav{
+    width: 20%;
+  }
   
+  mat-nav-list{
+    padding-top: 20px;
+  }
