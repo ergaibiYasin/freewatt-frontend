@@ -42,7 +42,6 @@ export class AddProductDialogComponent implements OnInit {
   }
 
   addOrUpdateProduct(){
-    console.log(this.product);
 
     this.submitted = true;
     if (this.addProductForm.invalid) {
