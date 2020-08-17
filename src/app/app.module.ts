@@ -22,6 +22,10 @@ import {MatFormFieldModule } from '@angular/material/form-field';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { ConfirmationDialogComponent } from './shared/confirmation-dialog/confirmation-dialog.component';
+import { SalesComponent } from './sales/sales.component';
+import { AddSalesDialogComponent } from './sales/add-sales-dialog/add-sales-dialog.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
 
 
 
@@ -31,6 +35,8 @@ import { ConfirmationDialogComponent } from './shared/confirmation-dialog/confir
     ProductsComponent,
     AddProductDialogComponent,
     ConfirmationDialogComponent,
+    SalesComponent,
+    AddSalesDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,9 +56,13 @@ import { ConfirmationDialogComponent } from './shared/confirmation-dialog/confir
     FormsModule,
     ReactiveFormsModule,
     MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
 
+    
     RouterModule.forRoot([
       { path: 'products', component: ProductsComponent },
+      { path: 'sales', component: SalesComponent },
 
     ])
   ],
