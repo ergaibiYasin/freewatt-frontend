@@ -1,6 +1,6 @@
-<h1>Liste des produits</h1>
+<h1 *ngIf="isLoggedIn">Liste des produits</h1>
 
-<div class="row ">
+<div class="row " *ngIf="isLoggedIn">
   <button mat-raised-button (click)="addProduct()" color="primary">Add</button>
 </div>
 
@@ -9,7 +9,7 @@
 
 <!-- Table -->
 
-<mat-table [dataSource]="dataSource" class="mat-elevation-z8 material-table">
+<mat-table *ngIf="isLoggedIn" [dataSource]="dataSource" class="mat-elevation-z8 material-table">
   <!-- productName Column -->
   <ng-container matColumnDef="productName">
     <mat-header-cell *matHeaderCellDef> Nom du produit </mat-header-cell>

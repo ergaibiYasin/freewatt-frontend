@@ -1,3 +1,4 @@
+import { TokenStorageService } from './../services/token-storage.service';
 import { element } from 'protractor';
 import { ConfirmationDialogComponent } from './../shared/confirmation-dialog/confirmation-dialog.component';
 import { AddProductDialogComponent } from './add-product-dialog/add-product-dialog.component';
@@ -23,10 +24,25 @@ export class ProductsComponent implements OnInit {
 
   dataSource = [];
 
-  constructor(private productService: ProductsService, private dialog: MatDialog) {}
+  private role: string[];
+  isLoggedIn = false;
+  isAdmin = false;
+
+  constructor(private productService: ProductsService, private dialog: MatDialog, private tokenStorageService: TokenStorageService) {}
 
   ngOnInit(): void {
-    this.getAllProducts();
+    
+    
+    this.isLoggedIn = !!this.tokenStorageService.getToken();
+    if (this.isLoggedIn) {
+      
+      this.getAllProducts();
+      const user = this.tokenStorageService.getUser();
+      this.role = user.role;
+      this.isAdmin = this.role.includes('Admin');
+    }else{
+      this.loginPage();
+    }
   }
 
   addProduct() {
@@ -75,5 +91,12 @@ export class ProductsComponent implements OnInit {
     this.productService.getAllProducts().subscribe((res) => {
       this.dataSource = res;
     });
+  }
+
+  loginPage(): void{
+    window.location.assign("/login")
+  }
+  goBack(): void{
+    window.history.back()
   }
 }

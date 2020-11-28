@@ -26,6 +26,7 @@ import { SalesComponent } from './sales/sales.component';
 import { AddSalesDialogComponent } from './sales/add-sales-dialog/add-sales-dialog.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
+import { LoginComponent } from './auth/login/login.component';
 
 
 
@@ -37,6 +38,7 @@ import {MatNativeDateModule} from '@angular/material/core';
     ConfirmationDialogComponent,
     SalesComponent,
     AddSalesDialogComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -63,6 +65,7 @@ import {MatNativeDateModule} from '@angular/material/core';
     RouterModule.forRoot([
       { path: 'products', component: ProductsComponent },
       { path: 'sales', component: SalesComponent },
+      { path: 'login', component: LoginComponent },
 
     ])
   ],

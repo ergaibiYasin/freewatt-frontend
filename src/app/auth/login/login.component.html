@@ -1,0 +1,44 @@
+
+<div fxLayoutAlign="center center" class="mainDiv">
+    <mat-card class="loginCard">
+
+        <mat-toolbar color="success">Login</mat-toolbar>
+
+        
+        <mat-card-content>
+            <form fxLayoutAlign="stretch" fxLayout="column" [formGroup]="loginForm" (ngSubmit)="login()">
+                <div fxLayout="row">
+                    <mat-form-field fxFlex="100">
+                        <input type="text" [(ngModel)]="user.username" formControlName="username" matInput placeholder="username" required>
+                        <mat-error *ngIf="getFormControls['username'].errors">
+                            <span *ngIf="getFormControls['username'].errors.required">
+                            Obligatoire<br>
+                            </span>
+                
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            
+                <div fxLayout="row">
+                    <mat-form-field fxFlex="100">
+                        <input type="text" [(ngModel)]="user.password" formControlName="password" matInput
+                            placeholder="password" required>
+                        <mat-error *ngIf="getFormControls['password'].errors">
+                            <span *ngIf="getFormControls['password'].errors.required">
+                            Obligatoire<br>
+                            </span>
+                
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <button mat-raised-button   type="submit" color="primary" [disabled]="loginForm.invalid">Login</button>
+            </form>
+        </mat-card-content>
+        <mat-card-actions>
+            
+        </mat-card-actions>
+      </mat-card>
+
+
+</div>
+  
