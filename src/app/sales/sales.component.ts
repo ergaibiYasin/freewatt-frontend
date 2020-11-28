@@ -1,3 +1,4 @@
+import { TokenStorageService } from './../services/token-storage.service';
 import { SalesService } from './../services/sales.service';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
@@ -22,11 +23,23 @@ export class SalesComponent implements OnInit {
 
   dataSource = [];
 
-  constructor(private salesService: SalesService, private dialog: MatDialog) { }
+  private role: string[];
+  isLoggedIn = false;
+  isAdmin = false;
+
+  constructor(private salesService: SalesService, private dialog: MatDialog, private tokenStorageService: TokenStorageService) { }
 
   ngOnInit(): void {
-    this.getAllSales();
+    this.isLoggedIn = !!this.tokenStorageService.getToken();
+    if (this.isLoggedIn) {
+      this.getAllSales();
 
+      const user = this.tokenStorageService.getUser();
+      this.role = user.role;
+      this.isAdmin = this.role.includes('Admin');
+    }else{
+      this.loginPage();
+    }
   }
 
   getAllSales(){
@@ -73,6 +86,10 @@ export class SalesComponent implements OnInit {
       }
       
     });
+  }
+
+  loginPage(): void{
+    window.location.assign("/login")
   }
   
 }

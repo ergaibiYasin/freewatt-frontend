@@ -1,3 +1,4 @@
+import { baseUrl } from './../../environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -16,20 +17,20 @@ const HTTP_OPTIONS = <any>{
 
 export class ProductsService {
 
-  url = "http://localhost:3000/product";
+  
 
   constructor(private http: HttpClient) { }
 
   getAllProducts() : Observable<any>{
-    return this.http.get(this.url + "/allProducts");
+    return this.http.get(baseUrl + "product/allProducts");
   }
 
   addOrUpdateProduct(data) : Observable<any>{
-    return this.http.post(this.url + "/addOrUpdate", data);
+    return this.http.post(baseUrl + "product/addOrUpdate", data);
   }
   
   deleteProduct(id) : Observable<any>{
-    return this.http.delete(this.url + "/del/" + id);
+    return this.http.delete(baseUrl + "product/del/" + id);
   }
   
   

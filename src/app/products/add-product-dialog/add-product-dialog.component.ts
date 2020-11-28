@@ -21,7 +21,7 @@ export class AddProductDialogComponent implements OnInit {
     categoryID : '',
     commentaire : ''
   };
-  
+   
   constructor(private formBuilder : FormBuilder, private productService: ProductsService, private dialogRef: MatDialogRef<AddProductDialogComponent>,
     
     @Inject(MAT_DIALOG_DATA) private data

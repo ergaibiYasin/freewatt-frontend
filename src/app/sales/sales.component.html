@@ -1,6 +1,6 @@
-<h1>Liste des ventes</h1>
+<h1 *ngIf="isLoggedIn">Liste des ventes</h1>
 
-<div class="row ">
+<div *ngIf="isLoggedIn" class="row ">
   <button mat-raised-button (click)="addSale()" color="primary">Add</button>
 </div>
 
@@ -9,7 +9,7 @@
 
 <!-- Table -->
 
-<mat-table [dataSource]="dataSource" class="mat-elevation-z8 material-table">
+<mat-table *ngIf="isLoggedIn" [dataSource]="dataSource" class="mat-elevation-z8 material-table">
   <!-- customer Column -->
   <ng-container matColumnDef="customerID">
     <mat-header-cell *matHeaderCellDef> Nom du client </mat-header-cell>
@@ -37,7 +37,7 @@
   <!-- Date Column -->
   <ng-container matColumnDef="saleDate">
     <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.saleDate}} </mat-cell>
+    <mat-cell *matCellDef="let element"> {{element.saleDate | date}} </mat-cell>
   </ng-container>
 
   <!-- commentaire Column -->
