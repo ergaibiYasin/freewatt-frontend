@@ -12,8 +12,8 @@
   <mat-sidenav-container class="nav-sidenav-container">
     <mat-sidenav #snav  fixedTopGap="56">
       <mat-nav-list>
-        <mat-list-item  routerLink="/" routerLinkActive="active">
-          <mat-icon>home</mat-icon> Dashboard
+        <mat-list-item  routerLink="/dashboard" routerLinkActive="active">
+          <mat-icon>dashboard</mat-icon> Dashboard
         </mat-list-item>
         
         <mat-list-item  routerLink="/products" routerLinkActive="active">
@@ -23,6 +23,12 @@
         <mat-list-item  routerLink="/sales" routerLinkActive="active">
           <mat-icon>point_of_sale</mat-icon> Sales
         </mat-list-item>
+        
+        <mat-list-item *ngIf="isAdmin" routerLink="/signup" routerLinkActive="active" >
+          <mat-icon>add_circle</mat-icon> signup
+        </mat-list-item>
+
+
         
         <mat-list-item *ngIf="isLoggedIn"  routerLinkActive="active" (click)="logout()">
           <mat-icon>logout</mat-icon> logout

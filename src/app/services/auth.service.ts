@@ -20,4 +20,8 @@ export class AuthService {
     
     return this.http.post(baseUrl + "login", data)
   }
+
+  signup(data): Observable<any>{
+    return this.http.post(baseUrl + 'signup', data)
+  }
 }

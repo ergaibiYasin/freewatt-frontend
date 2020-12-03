@@ -1,3 +1,4 @@
+import { AuthService } from './services/auth.service';
 import { TokenStorageService } from './services/token-storage.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 
@@ -16,7 +17,7 @@ export class AppComponent  implements OnInit {
 
   
 
-  constructor(private tokenStorageService: TokenStorageService) {
+  constructor(private tokenStorageService: TokenStorageService, private authService: AuthService) {
   }
 
   ngOnInit(): void{
@@ -33,5 +34,7 @@ export class AppComponent  implements OnInit {
     this.tokenStorageService.signOut();
     window.location.reload()
   }
+  
+  
 
 }
