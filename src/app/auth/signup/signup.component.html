@@ -1,0 +1,74 @@
+<div fxLayoutAlign="center center" class="mainDiv">
+    <mat-card class="signupCard">
+
+        <mat-toolbar class="title" color="success">signup</mat-toolbar>
+
+        
+        <mat-card-content class="content">
+            <form class="form" fxLayoutAlign="stretch" fxLayout="column" [formGroup]="signupForm" (ngSubmit)="signup()">
+                <div fxLayout="row">
+                    <mat-form-field fxFlex="100">
+                        <input type="text" [(ngModel)]="user.username" formControlName="username" matInput placeholder="username" required>
+                        <mat-error *ngIf="getFormControls['username'].errors">
+                            <span *ngIf="getFormControls['username'].errors.required">
+                            Obligatoire<br>
+                            </span>
+                
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                
+                <div fxLayout="row">
+                    <mat-form-field fxFlex="100">
+                        <input type="text" [(ngModel)]="user.email" formControlName="email" matInput placeholder="email" required>
+                        <mat-error *ngIf="getFormControls['email'].errors">
+                            <span *ngIf="getFormControls['email'].errors.required">
+                            Obligatoire<br>
+                            </span>
+                
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                
+                <div fxLayout="row">
+                    <mat-form-field fxFlex="100">
+                        <input type="text" [(ngModel)]="user.password" formControlName="password" matInput placeholder="password" required>
+                        <mat-error *ngIf="getFormControls['password'].errors">
+                            <span *ngIf="getFormControls['password'].errors.required">
+                            Obligatoire<br>
+                            </span>
+                
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            
+                <div fxLayout="row">
+                    <mat-form-field fxFlex="100">
+                        <input type="text" [(ngModel)]="user.role" formControlName="role" matInput
+                            placeholder="role" [matAutocomplete]="auto" required>
+                        <mat-autocomplete #auto="matAutocomplete">
+                            <mat-option *ngFor="let option of options" [value]="option">
+                                {{option}}
+                            </mat-option>
+                        </mat-autocomplete>
+                        <mat-error *ngIf="getFormControls['role'].errors">
+                            <span *ngIf="getFormControls['role'].errors.required">
+                            Obligatoire<br>
+                            </span>
+                
+                        </mat-error>
+                    </mat-form-field>
+
+                </div>
+                <button mat-raised-button   type="submit" color="primary" [disabled]="signupForm.invalid">signup</button>
+            </form>
+        </mat-card-content>
+        <mat-card-actions>
+            
+        </mat-card-actions>
+      </mat-card>
+
+
+</div>
+
+  

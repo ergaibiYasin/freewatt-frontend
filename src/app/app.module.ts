@@ -27,6 +27,9 @@ import { AddSalesDialogComponent } from './sales/add-sales-dialog/add-sales-dial
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import { LoginComponent } from './auth/login/login.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SignupComponent } from './auth/signup/signup.component';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 
 
@@ -39,6 +42,8 @@ import { LoginComponent } from './auth/login/login.component';
     SalesComponent,
     AddSalesDialogComponent,
     LoginComponent,
+    DashboardComponent,
+    SignupComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,12 +65,15 @@ import { LoginComponent } from './auth/login/login.component';
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatAutocompleteModule,
 
     
     RouterModule.forRoot([
       { path: 'products', component: ProductsComponent },
       { path: 'sales', component: SalesComponent },
       { path: 'login', component: LoginComponent },
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'signup', component: SignupComponent },
 
     ])
   ],
