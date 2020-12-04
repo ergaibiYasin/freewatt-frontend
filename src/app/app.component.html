@@ -24,6 +24,10 @@
           <mat-icon>point_of_sale</mat-icon> Sales
         </mat-list-item>
         
+        <mat-list-item  routerLink="/fournisseurs" routerLinkActive="active">
+          <mat-icon>local_shipping</mat-icon> Fournisseurs
+        </mat-list-item>
+        
         <mat-list-item *ngIf="isAdmin" routerLink="/signup" routerLinkActive="active" >
           <mat-icon>add_circle</mat-icon> signup
         </mat-list-item>

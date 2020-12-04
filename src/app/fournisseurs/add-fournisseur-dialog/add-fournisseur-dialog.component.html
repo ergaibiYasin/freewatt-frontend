@@ -1,0 +1,74 @@
+<form [formGroup]="addFournisseurForm" (ngSubmit)="addOrUpdateFournisseur()">
+
+    <div class="nl-Dialog--header">
+      <h2 mat-dialog-title>Add a supplier </h2>
+    </div>
+    <mat-dialog-content>
+      <div fxLayout="row">
+        <mat-form-field fxFlex="100">
+          <input type="text" [(ngModel)]="fournisseur.nom" formControlName="nom" matInput
+            placeholder="Nom" [ngClass]="{'is-invalid': submitted && getFormControls['nom'].errors}"
+            required>
+          <mat-error *ngIf="getFormControls['nom'].errors">
+            <span *ngIf="getFormControls['nom'].errors.required">
+              Obligatoire<br>
+            </span>
+  
+          </mat-error>
+        </mat-form-field>
+      </div>
+  
+      <div fxLayout="row">
+        <mat-form-field fxFlex="100">
+          <input type="text" [(ngModel)]="fournisseur.prenom" formControlName="prenom" matInput placeholder="Prenom" required>
+          <mat-error *ngIf="getFormControls['prenom'].errors">
+            <span *ngIf="getFormControls['prenom'].errors.required">
+              Obligatoire<br>
+            </span>
+  
+          </mat-error>
+        </mat-form-field>
+      </div>
+  
+      <div fxLayout="row">
+        <mat-form-field fxFlex="100">
+          <input type="text" [(ngModel)]="fournisseur.email" formControlName="email" matInput
+            placeholder="Enail" required>
+          <mat-error *ngIf="getFormControls['email'].errors">
+            <span *ngIf="getFormControls['email'].errors.required">
+              Obligatoire<br>
+            </span>
+  
+          </mat-error>
+        </mat-form-field>
+      </div>
+      
+      <div fxLayout="row">
+        <mat-form-field fxFlex="100">
+          <input type="text" [(ngModel)]="fournisseur.num" formControlName="num" matInput
+            placeholder="Numero de telephone" required>
+          <mat-error *ngIf="getFormControls['num'].errors">
+            <span *ngIf="getFormControls['num'].errors.required">
+              Obligatoire<br>
+            </span>
+  
+          </mat-error>
+        </mat-form-field>
+      </div>
+  
+      
+  
+  
+  
+    </mat-dialog-content>
+  
+  
+    <mat-dialog-actions align="end">
+      <button mat-button mat-dialog-close>Cancel</button>
+      <button mat-button *ngIf="fournisseur.fournisseurID" [mat-dialog-close]="true" type="submit"
+        [disabled]="addFournisseurForm.invalid">Update</button>
+      <button mat-button *ngIf="!fournisseur.fournisseurID" [mat-dialog-close]="true" type="submit"
+        [disabled]="addFournisseurForm.invalid">Add</button>
+    </mat-dialog-actions>
+  
+  </form>
