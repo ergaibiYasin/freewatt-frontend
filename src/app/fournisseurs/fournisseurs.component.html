@@ -1,0 +1,61 @@
+<h1 *ngIf="isLoggedIn">Liste des Fournisseurs</h1>
+
+<div class="row " *ngIf="isLoggedIn">
+  <button mat-raised-button (click)="addFournisseur()" color="primary">Add</button>
+</div>
+
+
+
+
+<!-- Table -->
+
+<mat-table *ngIf="isLoggedIn" [dataSource]="dataSource" class="mat-elevation-z8 material-table">
+  <!-- productName Column -->
+  <ng-container matColumnDef="nom">
+    <mat-header-cell *matHeaderCellDef> Nom du Fournisseur </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.nom}} </mat-cell>
+  </ng-container>
+
+  <!-- price Column -->
+  <ng-container matColumnDef="prenom">
+    <mat-header-cell *matHeaderCellDef> Prenom du Fournisseur </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.prenom}} </mat-cell>
+  </ng-container>
+
+  <!-- categoryID Column -->
+  <ng-container matColumnDef="email">
+    <mat-header-cell *matHeaderCellDef> email </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
+  </ng-container>
+
+  <!-- description Column -->
+  <ng-container matColumnDef="num">
+    <mat-header-cell *matHeaderCellDef> Numero de telephone </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.num}} </mat-cell>
+  </ng-container>
+
+  
+  <!-- Action Column -->
+  <ng-container matColumnDef="action">
+    <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
+    <mat-cell *matCellDef="let element">
+
+      <div class="delete button action">
+        <button mat-mini-fab color="accent" (click)="deleteFournisseur(element)" aria-label="delete button">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+
+      <div class="edit button action">
+        <button mat-mini-fab color="accent" (click)="uppdateFournisseur(element)" aria-label="edit button">
+          <mat-icon>edit</mat-icon>
+        </button>
+      </div>
+
+
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
