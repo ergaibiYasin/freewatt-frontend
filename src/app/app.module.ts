@@ -88,6 +88,7 @@ import { AddClientDialogComponent } from './clients/add-client-dialog/add-client
       { path: 'dashboard', component: DashboardComponent },
       { path: 'signup', component: SignupComponent },
       { path: 'fournisseurs', component: FournisseursComponent },
+      { path: 'clients', component: ClientsComponent },
 
     ])
   ],
