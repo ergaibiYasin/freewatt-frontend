@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ClientsService } from './../../services/clients.service';
+import { Component, Inject, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-add-client-dialog',
@@ -7,9 +11,44 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddClientDialogComponent implements OnInit {
 
-  constructor() { }
+  addClientForm: FormGroup;
+  submitted = false;
+  client= {
+    clientID : '',
+    nom : '',
+    prenom : '',
+    email : '',
+    num : '',
+  };
+
+  constructor(private formBuilder: FormBuilder, private clientsService: ClientsService, private dialogRef: MatDialogRef<AddClientDialogComponent>, @Inject(MAT_DIALOG_DATA) private data) { }
 
   ngOnInit(): void {
+    if (this.data && this.data.clientID ) {
+      this.client = this.data;
+    }
+    this.addClientForm = this.formBuilder.group({
+      nom: ['', Validators.required],
+      prenom: ['', Validators.required],
+      email: [''],
+      num: [''],
+    })
   }
+
+  addOrUpdateClient(){
+
+    this.submitted = true;
+    if (this.addClientForm.invalid) {
+      return ;
+    }
+    this.clientsService.addOrUpdateClient(this.client).subscribe((res) =>{
+      console.log("Added");
+    })
+  }
+
+  get getFormControls(){
+    return this.addClientForm.controls ;
+  }
+
 
 }

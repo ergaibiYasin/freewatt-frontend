@@ -10,6 +10,7 @@ export class ClientsComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
 }

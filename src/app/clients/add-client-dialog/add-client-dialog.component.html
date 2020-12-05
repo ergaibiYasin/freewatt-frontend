@@ -1,1 +1,64 @@
-<p>add-client-dialog works!</p>
+<form [formGroup]="addClientForm" (ngSubmit)="addOrUpdateClient()">
+
+    <div class="nl-Dialog--header">
+      <h2 mat-dialog-title>Add a client </h2>
+    </div>
+    <mat-dialog-content>
+      <div fxLayout="row">
+        <mat-form-field fxFlex="100">
+          <input type="text" [(ngModel)]="client.nom" formControlName="nom" matInput
+            placeholder="Nom" [ngClass]="{'is-invalid': submitted && getFormControls['nom'].errors}"
+            required>
+          <mat-error *ngIf="getFormControls['nom'].errors">
+            <span *ngIf="getFormControls['nom'].errors.required">
+              Obligatoire<br>
+            </span>
+  
+          </mat-error>
+        </mat-form-field>
+      </div>
+  
+      <div fxLayout="row">
+        <mat-form-field fxFlex="100">
+          <input type="text" [(ngModel)]="client.prenom" formControlName="prenom" matInput placeholder="Prenom" required>
+          <mat-error *ngIf="getFormControls['prenom'].errors">
+            <span *ngIf="getFormControls['prenom'].errors.required">
+              Obligatoire<br>
+            </span>
+  
+          </mat-error>
+        </mat-form-field>
+      </div>
+  
+      <div fxLayout="row">
+        <mat-form-field fxFlex="100">
+          <input type="text" [(ngModel)]="client.email" formControlName="email" matInput
+            placeholder="Enail" required>
+          
+        </mat-form-field>
+      </div>
+      
+      <div fxLayout="row">
+        <mat-form-field fxFlex="100">
+          <input type="text" [(ngModel)]="client.num" formControlName="num" matInput
+            placeholder="Numero de telephone" required>
+          
+        </mat-form-field>
+      </div>
+  
+      
+  
+  
+  
+    </mat-dialog-content>
+  
+  
+    <mat-dialog-actions align="end">
+      <button mat-button mat-dialog-close>Cancel</button>
+      <button mat-button *ngIf="client.clientID" [mat-dialog-close]="true" type="submit"
+        [disabled]="addClientForm.invalid">Update</button>
+      <button mat-button *ngIf="!client.clientID" [mat-dialog-close]="true" type="submit"
+        [disabled]="addClientForm.invalid">Add</button>
+    </mat-dialog-actions>
+  
+  </form>
