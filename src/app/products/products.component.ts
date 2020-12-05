@@ -15,6 +15,7 @@ import {MatDialog} from '@angular/material/dialog';
 export class ProductsComponent implements OnInit {
   displayedColumns: string[] = [
     'productName',
+    'fournisseur',
     'price',
     'description',
     'commentaire',

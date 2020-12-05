@@ -16,6 +16,7 @@ export class AddProductDialogComponent implements OnInit {
   product= {
     productID : '',
     productName : '',
+    fournisseur : '',
     price : '',
     description : '',
     commentaire : ''
@@ -32,6 +33,7 @@ export class AddProductDialogComponent implements OnInit {
     }
     this.addProductForm = this.formBuilder.group({
       productName: ['', Validators.required],
+      fournisseur: [''],
       price: ['', Validators.required],
       description: [''],
       commentaire: [''],

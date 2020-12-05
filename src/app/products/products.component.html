@@ -15,6 +15,12 @@
     <mat-header-cell *matHeaderCellDef> Nom du produit </mat-header-cell>
     <mat-cell *matCellDef="let element"> {{element.productName}} </mat-cell>
   </ng-container>
+  
+  <!-- fournisseur Column -->
+  <ng-container matColumnDef="fournisseur">
+    <mat-header-cell *matHeaderCellDef> Fournisseur </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.fournisseur}} </mat-cell>
+  </ng-container>
 
   <!-- price Column -->
   <ng-container matColumnDef="price">

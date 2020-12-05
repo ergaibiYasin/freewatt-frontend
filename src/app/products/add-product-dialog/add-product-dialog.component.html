@@ -17,6 +17,14 @@
         </mat-error>
       </mat-form-field>
     </div>
+    
+    <div fxLayout="row">
+      <mat-form-field fxFlex="100">
+        <input type="text" [(ngModel)]="product.fournisseur" formControlName="fournisseur" matInput
+          placeholder="Fournisseur" >
+        
+      </mat-form-field>
+    </div>
 
     <div fxLayout="row">
       <mat-form-field fxFlex="100">
