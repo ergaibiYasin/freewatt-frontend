@@ -34,6 +34,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { FournisseursComponent } from './fournisseurs/fournisseurs.component';
 import { AddFournisseurDialogComponent } from './fournisseurs/add-fournisseur-dialog/add-fournisseur-dialog.component';
+import { ClientsComponent } from './clients/clients.component';
+import { AddClientDialogComponent } from './clients/add-client-dialog/add-client-dialog.component';
 
 
 
@@ -52,6 +54,8 @@ import { AddFournisseurDialogComponent } from './fournisseurs/add-fournisseur-di
     SignupComponent,
     FournisseursComponent,
     AddFournisseurDialogComponent,
+    ClientsComponent,
+    AddClientDialogComponent,
     
   ],
   imports: [
@@ -84,6 +88,7 @@ import { AddFournisseurDialogComponent } from './fournisseurs/add-fournisseur-di
       { path: 'dashboard', component: DashboardComponent },
       { path: 'signup', component: SignupComponent },
       { path: 'fournisseurs', component: FournisseursComponent },
+      { path: 'clients', component: ClientsComponent },
 
     ])
   ],
