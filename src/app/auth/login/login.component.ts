@@ -2,7 +2,6 @@ import { TokenStorageService } from './../../services/token-storage.service';
 import { AuthService } from '../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { error } from 'console';
 
 @Component({
   selector: 'app-login',
