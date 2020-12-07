@@ -1,10 +1,10 @@
 import { TokenStorageService } from './../services/token-storage.service';
-import { element } from 'protractor';
 import { ConfirmationDialogComponent } from './../shared/confirmation-dialog/confirmation-dialog.component';
 import { AddProductDialogComponent } from './add-product-dialog/add-product-dialog.component';
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from '../services/products.service';
 import {MatDialog} from '@angular/material/dialog';
+
 
 
 @Component({
@@ -28,7 +28,11 @@ export class ProductsComponent implements OnInit {
   isLoggedIn = false;
   isAdmin = false;
 
+  
+  
   constructor(private productService: ProductsService, private dialog: MatDialog, private tokenStorageService: TokenStorageService) {}
+
+  
 
   ngOnInit(): void {
     
@@ -44,6 +48,7 @@ export class ProductsComponent implements OnInit {
       this.loginPage();
     }
   }
+
 
   addProduct() {
     const dialogRef = this.dialog.open(AddProductDialogComponent);
