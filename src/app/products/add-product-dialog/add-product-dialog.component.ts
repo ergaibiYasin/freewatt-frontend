@@ -16,9 +16,9 @@ export class AddProductDialogComponent implements OnInit {
   product= {
     productID : '',
     productName : '',
+    fournisseur : '',
     price : '',
     description : '',
-    categoryID : '',
     commentaire : ''
   };
    
@@ -33,9 +33,9 @@ export class AddProductDialogComponent implements OnInit {
     }
     this.addProductForm = this.formBuilder.group({
       productName: ['', Validators.required],
+      fournisseur: [''],
       price: ['', Validators.required],
       description: [''],
-      categoryID: ['', Validators.required],
       commentaire: [''],
       
     });
@@ -52,17 +52,6 @@ export class AddProductDialogComponent implements OnInit {
     })
   }
 
-  // uppdateProduct(this.data){
-  //   this.submitted = true;
-  //   if (this.addProductForm.invalid) {
-  //     return ;
-  //   }
-  //   this.productService.addProduct(this.addProductForm.value).subscribe((res) =>{
-  //     console.log("Added");
-  //   })
-  // }
-
- 
 
   get getFormControls(){
     return this.addProductForm.controls ;

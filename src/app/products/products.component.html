@@ -6,14 +6,17 @@
 
 
 
-
-<!-- Table -->
-
-<mat-table *ngIf="isLoggedIn" [dataSource]="dataSource" class="mat-elevation-z8 material-table">
+<mat-table  *ngIf="isLoggedIn" [dataSource]="dataSource" class="mat-elevation-z8 material-table" >
   <!-- productName Column -->
   <ng-container matColumnDef="productName">
     <mat-header-cell *matHeaderCellDef> Nom du produit </mat-header-cell>
     <mat-cell *matCellDef="let element"> {{element.productName}} </mat-cell>
+  </ng-container>
+  
+  <!-- fournisseur Column -->
+  <ng-container matColumnDef="fournisseur">
+    <mat-header-cell *matHeaderCellDef> Fournisseur </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.fournisseur}} </mat-cell>
   </ng-container>
 
   <!-- price Column -->
@@ -22,11 +25,7 @@
     <mat-cell *matCellDef="let element"> {{element.price}} </mat-cell>
   </ng-container>
 
-  <!-- categoryID Column -->
-  <ng-container matColumnDef="categoryID">
-    <mat-header-cell *matHeaderCellDef> categoryID </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.categoryID}} </mat-cell>
-  </ng-container>
+  
 
   <!-- description Column -->
   <ng-container matColumnDef="description">
@@ -63,4 +62,5 @@
 
   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
   <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  
 </mat-table>
