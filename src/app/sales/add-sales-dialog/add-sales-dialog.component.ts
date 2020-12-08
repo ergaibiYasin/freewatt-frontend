@@ -1,3 +1,4 @@
+import { ProductsService } from './../../services/products.service';
 import { ClientsService } from './../../services/clients.service';
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -22,11 +23,14 @@ export class AddSalesDialogComponent implements OnInit {
     comment: '',
   };
 
-  options =[]
+  clientOptions =[];
+  productOptions =[];
+
   constructor(
     private formBuilder: FormBuilder,
     private salesService: SalesService,
     private clientsService: ClientsService,
+    private productService: ProductsService,
     private dialogRef: MatDialogRef<AddSalesDialogComponent>,
 
     @Inject(MAT_DIALOG_DATA) private data
@@ -44,6 +48,7 @@ export class AddSalesDialogComponent implements OnInit {
       saleDate: ['', Validators.required],
       comment: [''],
     });
+    this.getproductName();
     this.getClientsFullname();
   }
 
@@ -59,7 +64,15 @@ export class AddSalesDialogComponent implements OnInit {
 
   getClientsFullname(){
     this.clientsService.getClientsFullname().subscribe((res) => {
-      this.options = res;
+      this.clientOptions = res;
+    });
+  }
+  
+  getproductName(){
+    this.productService.getProductName().subscribe((res) => {
+      this.productOptions = res;
+      console.log(this.productOptions);
+      
     });
   }
 
