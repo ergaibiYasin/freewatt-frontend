@@ -50,6 +50,8 @@ export class AddSalesDialogComponent implements OnInit {
     });
     this.getproductName();
     this.getClientsFullname();
+    console.log('yasin' + ' ' + 'ERGAIBI');
+    
   }
 
   addOrUpdateSale() {
@@ -71,7 +73,6 @@ export class AddSalesDialogComponent implements OnInit {
   getproductName(){
     this.productService.getProductName().subscribe((res) => {
       this.productOptions = res;
-      console.log(this.productOptions);
       
     });
   }

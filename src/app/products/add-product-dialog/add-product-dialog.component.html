@@ -21,7 +21,19 @@
     <div fxLayout="row">
       <mat-form-field fxFlex="100">
         <input type="text" [(ngModel)]="product.fournisseur" formControlName="fournisseur" matInput
-          placeholder="Fournisseur" >
+          placeholder="Fournisseur" [matAutocomplete]="auto1" required>
+        <mat-autocomplete #auto1="matAutocomplete">
+          <mat-option *ngFor="let option of options" [value]="option">
+              {{option}}
+          </mat-option>
+      </mat-autocomplete>
+        <mat-error *ngIf="getFormControls['fournisseur'].errors">
+          <span *ngIf="getFormControls['fournisseur'].errors.required">
+            Obligatoire<br>
+          </span>
+
+        </mat-error>
+
         
       </mat-form-field>
     </div>
