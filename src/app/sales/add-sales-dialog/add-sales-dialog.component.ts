@@ -13,8 +13,8 @@ export class AddSalesDialogComponent implements OnInit {
   submitted = false;
   sale = {
     saleID: '',
-    customerID: '',
-    productID: '',
+    client: '',
+    product: '',
     unitPrice: '',
     quantity: '',
     saleDate: '',
@@ -34,8 +34,8 @@ export class AddSalesDialogComponent implements OnInit {
       this.sale = this.data;
     }
     this.addSaleForm = this.formBuilder.group({
-      customerID: ['', Validators.required],
-      productID: ['', Validators.required],
+      client: ['', Validators.required],
+      product: ['', Validators.required],
       unitPrice: ['', Validators.required],
       quantity: ['', Validators.required],
       saleDate: ['', Validators.required],

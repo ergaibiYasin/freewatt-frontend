@@ -6,11 +6,11 @@
     <mat-dialog-content>
         <div fxLayout="row">
             <mat-form-field fxFlex="100">
-                <input type="text" [(ngModel)]="sale.customerID" formControlName="customerID" matInput
-                    placeholder="customerID"
-                    [ngClass]="{'is-invalid': submitted && getFormControls['customerID'].errors}" required>
-                <mat-error *ngIf="getFormControls['customerID'].errors">
-                    <span *ngIf="getFormControls['customerID'].errors.required">
+                <input type="text" [(ngModel)]="sale.client" formControlName="client" matInput
+                    placeholder="client"
+                    [ngClass]="{'is-invalid': submitted && getFormControls['client'].errors}" required>
+                <mat-error *ngIf="getFormControls['client'].errors">
+                    <span *ngIf="getFormControls['client'].errors.required">
                         Obligatoire<br>
                     </span>
 
@@ -20,10 +20,10 @@
 
         <div fxLayout="row">
             <mat-form-field fxFlex="100">
-                <input type="text" [(ngModel)]="sale.productID" formControlName="productID" matInput
-                    placeholder="productID" required>
-                <mat-error *ngIf="getFormControls['productID'].errors">
-                    <span *ngIf="getFormControls['productID'].errors.required">
+                <input type="text" [(ngModel)]="sale.product" formControlName="product" matInput
+                    placeholder="product" required>
+                <mat-error *ngIf="getFormControls['product'].errors">
+                    <span *ngIf="getFormControls['product'].errors.required">
                         Obligatoire<br>
                     </span>
 
