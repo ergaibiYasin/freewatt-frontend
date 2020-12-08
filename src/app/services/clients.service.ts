@@ -23,4 +23,7 @@ export class ClientsService {
     return this.http.delete(baseUrl + "clients/del/" + id);
   }
 
+  getClientsFullname() : Observable<any>{
+    return this.http.get(baseUrl + "clients/clientsFullname");
+  }
 }

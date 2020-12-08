@@ -1,3 +1,4 @@
+import { ClientsService } from './../../services/clients.service';
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { SalesService } from 'src/app/services/sales.service';
@@ -21,9 +22,11 @@ export class AddSalesDialogComponent implements OnInit {
     comment: '',
   };
 
+  options =[]
   constructor(
     private formBuilder: FormBuilder,
     private salesService: SalesService,
+    private clientsService: ClientsService,
     private dialogRef: MatDialogRef<AddSalesDialogComponent>,
 
     @Inject(MAT_DIALOG_DATA) private data
@@ -41,6 +44,7 @@ export class AddSalesDialogComponent implements OnInit {
       saleDate: ['', Validators.required],
       comment: [''],
     });
+    this.getClientsFullname();
   }
 
   addOrUpdateSale() {
@@ -50,6 +54,12 @@ export class AddSalesDialogComponent implements OnInit {
     }
     this.salesService.addOrUpdateSale(this.sale).subscribe((res) => {
       console.log('Added');
+    });
+  }
+
+  getClientsFullname(){
+    this.clientsService.getClientsFullname().subscribe((res) => {
+      this.options = res;
     });
   }
 

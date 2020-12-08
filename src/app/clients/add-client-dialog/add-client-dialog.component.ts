@@ -15,8 +15,7 @@ export class AddClientDialogComponent implements OnInit {
   submitted = false;
   client= {
     clientID : '',
-    nom : '',
-    prenom : '',
+    fullname : '',
     email : '',
     num : '',
   };
@@ -28,8 +27,7 @@ export class AddClientDialogComponent implements OnInit {
       this.client = this.data;
     }
     this.addClientForm = this.formBuilder.group({
-      nom: ['', Validators.required],
-      prenom: ['', Validators.required],
+      fullname: ['', Validators.required],
       email: [''],
       num: [''],
     })

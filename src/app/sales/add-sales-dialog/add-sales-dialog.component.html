@@ -7,8 +7,13 @@
         <div fxLayout="row">
             <mat-form-field fxFlex="100">
                 <input type="text" [(ngModel)]="sale.client" formControlName="client" matInput
-                    placeholder="client"
+                    placeholder="client" [matAutocomplete]="auto" 
                     [ngClass]="{'is-invalid': submitted && getFormControls['client'].errors}" required>
+                    <mat-autocomplete #auto="matAutocomplete">
+                        <mat-option *ngFor="let option of options" [value]="option">
+                            {{option}}
+                        </mat-option>
+                    </mat-autocomplete>
                 <mat-error *ngIf="getFormControls['client'].errors">
                     <span *ngIf="getFormControls['client'].errors.required">
                         Obligatoire<br>
