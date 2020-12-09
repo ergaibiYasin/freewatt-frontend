@@ -9,7 +9,7 @@
             <form fxLayoutAlign="stretch" fxLayout="column" [formGroup]="loginForm" (ngSubmit)="login()">
                 <div fxLayout="row">
                     <mat-form-field fxFlex="100">
-                        <input type="text" [(ngModel)]="user.username" formControlName="username" matInput placeholder="username" required>
+                        <input type="text" [(ngModel)]="user.username" formControlName="username" matInput placeholder="username"  required>
                         <mat-error *ngIf="getFormControls['username'].errors">
                             <span *ngIf="getFormControls['username'].errors.required">
                             Obligatoire<br>
@@ -22,7 +22,9 @@
                 <div fxLayout="row">
                     <mat-form-field fxFlex="100">
                         <input type="text" [(ngModel)]="user.password" formControlName="password" matInput
-                            placeholder="password" required>
+                            placeholder="password" [type]="hide ? 'password' : 'text'" required>
+                        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    
                         <mat-error *ngIf="getFormControls['password'].errors">
                             <span *ngIf="getFormControls['password'].errors.required">
                             Obligatoire<br>
