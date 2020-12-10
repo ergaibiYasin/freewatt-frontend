@@ -21,6 +21,7 @@ export class AddFournisseurDialogComponent implements OnInit {
   };
 
 
+
   constructor(private formBuilder: FormBuilder, private fournisseurService: FournisseursService, private dialogRef: MatDialogRef<AddFournisseurDialogComponent>, @Inject(MAT_DIALOG_DATA) private data) { }
 
   ngOnInit(): void {
@@ -46,6 +47,8 @@ export class AddFournisseurDialogComponent implements OnInit {
       console.log("Added");
     })
   }
+
+  
 
   get getFormControls(){
     return this.addFournisseurForm.controls ;

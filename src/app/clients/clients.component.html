@@ -11,16 +11,12 @@
 
 <mat-table *ngIf="isLoggedIn" [dataSource]="dataSource" class="mat-elevation-z8 material-table">
   <!-- Nom Column -->
-  <ng-container matColumnDef="nom">
-    <mat-header-cell *matHeaderCellDef> Nom du Client </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.nom}} </mat-cell>
+  <ng-container matColumnDef="fullname">
+    <mat-header-cell *matHeaderCellDef> Fullname </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.fullname}} </mat-cell>
   </ng-container>
 
-  <!-- Prenom Column -->
-  <ng-container matColumnDef="prenom">
-    <mat-header-cell *matHeaderCellDef> Prenom du Client </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.prenom}} </mat-cell>
-  </ng-container>
+  
 
   <!-- email Column -->
   <ng-container matColumnDef="email">

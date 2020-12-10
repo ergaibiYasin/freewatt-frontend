@@ -25,4 +25,7 @@ export class FournisseursService {
     return this.http.delete(baseUrl + "fournisseurs/del/" + id);
   }
 
+  getFournisseurFullname() : Observable<any>{
+    return this.http.get(baseUrl + "fournisseurs/selectFournisseur");
+  }
 }

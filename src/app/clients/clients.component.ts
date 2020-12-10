@@ -14,8 +14,7 @@ import { ConfirmationDialogComponent } from '../shared/confirmation-dialog/confi
 export class ClientsComponent implements OnInit {
 
   displayedColumns: string[] = [
-    'nom',
-    'prenom',
+    'fullname',
     'email',
     'num',
     'action'

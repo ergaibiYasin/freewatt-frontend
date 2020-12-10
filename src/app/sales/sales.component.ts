@@ -12,10 +12,11 @@ import { AddSalesDialogComponent } from './add-sales-dialog/add-sales-dialog.com
 })
 export class SalesComponent implements OnInit {
   displayedColumns: string[] = [
-    'customerID',
-    'productID',
+    'client',
+    'product',
     'unitPrice',
     'quantity',
+    'total',
     'saleDate',
     'comment',
     'action'
@@ -34,6 +35,10 @@ export class SalesComponent implements OnInit {
     if (this.isLoggedIn) {
       this.getAllSales();
 
+      
+      // console.log(this.dataSource);
+      
+
       const user = this.tokenStorageService.getUser();
       this.role = user.role;
       this.isAdmin = this.role.includes('Admin');
@@ -42,10 +47,17 @@ export class SalesComponent implements OnInit {
     }
   }
 
+  getTotal(dataSource) {
+    return this.dataSource.map(t => t.total).reduce((acc, value) => acc + value, 0);
+  }
+
   getAllSales(){
     this.salesService.getAllSales().subscribe((res) => {
       this.dataSource = res;
-      console.log(res)
+      
+
+      
+
     });
   }
 

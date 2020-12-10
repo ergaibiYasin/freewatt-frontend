@@ -1,3 +1,4 @@
+import { FournisseursService } from './../../services/fournisseurs.service';
 import { ProductsService } from './../../services/products.service';
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
@@ -21,8 +22,10 @@ export class AddProductDialogComponent implements OnInit {
     description : '',
     commentaire : ''
   };
+
+  options = [];
    
-  constructor(private formBuilder : FormBuilder, private productService: ProductsService, private dialogRef: MatDialogRef<AddProductDialogComponent>,
+  constructor(private formBuilder : FormBuilder, private productService: ProductsService, private fournisseurService: FournisseursService, private dialogRef: MatDialogRef<AddProductDialogComponent>,
     
     @Inject(MAT_DIALOG_DATA) private data
     ) { }
@@ -39,6 +42,7 @@ export class AddProductDialogComponent implements OnInit {
       commentaire: [''],
       
     });
+    this.getFournisseurFullname();
   }
 
   addOrUpdateProduct(){
@@ -50,6 +54,12 @@ export class AddProductDialogComponent implements OnInit {
     this.productService.addOrUpdateProduct(this.product).subscribe((res) =>{
       console.log("Added");
     })
+  }
+
+  getFournisseurFullname(){
+    this.fournisseurService.getFournisseurFullname().subscribe((res) => {
+      this.options = res;
+    });
   }
 
 
