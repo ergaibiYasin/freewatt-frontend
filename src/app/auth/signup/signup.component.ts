@@ -19,12 +19,14 @@ export class SignupComponent implements OnInit {
 
   options: string[] = ['Admin', 'Moderator'];
 
+  hide = true;
+
   constructor(private formBuilder : FormBuilder, private signupService: AuthService ) { }
 
   ngOnInit(): void {
     this.signupForm = this.formBuilder.group({
       username: ['', Validators.required],
-      email: ['', Validators.required],
+      email: ['', Validators.required, Validators.email],
       password: ['', Validators.required],
       role: ['', Validators.required]
     });

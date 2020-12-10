@@ -20,6 +20,8 @@ export class LoginComponent implements OnInit {
   isLoginFailed = false;
   role: string[] = [];
 
+  hide = true;
+
 
   constructor(private formBuilder : FormBuilder, private loginService: AuthService, private tokenStorage: TokenStorageService) { }
 
