@@ -34,11 +34,6 @@ export class SalesComponent implements OnInit {
     this.isLoggedIn = !!this.tokenStorageService.getToken();
     if (this.isLoggedIn) {
       this.getAllSales();
-
-      
-      // console.log(this.dataSource);
-      
-
       const user = this.tokenStorageService.getUser();
       this.role = user.role;
       this.isAdmin = this.role.includes('Admin');
@@ -54,10 +49,6 @@ export class SalesComponent implements OnInit {
   getAllSales(){
     this.salesService.getAllSales().subscribe((res) => {
       this.dataSource = res;
-      
-
-      
-
     });
   }
 

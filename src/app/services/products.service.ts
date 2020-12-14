@@ -17,8 +17,6 @@ const HTTP_OPTIONS = <any>{
 
 export class ProductsService {
 
-  
-
   constructor(private http: HttpClient) { }
 
   getAllProducts() : Observable<any>{
