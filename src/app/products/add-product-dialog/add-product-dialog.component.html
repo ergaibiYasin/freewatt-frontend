@@ -1,0 +1,85 @@
+<form [formGroup]="addProductForm" (ngSubmit)="addOrUpdateProduct()">
+
+  <div class="nl-Dialog--header">
+    <h2 mat-dialog-title>Add a poduct </h2>
+  </div>
+  <mat-dialog-content>
+    <div fxLayout="row">
+      <mat-form-field fxFlex="100">
+        <input type="text" [(ngModel)]="product.productName" formControlName="productName" matInput
+          placeholder="Product Name" [ngClass]="{'is-invalid': submitted && getFormControls['productName'].errors}"
+          required>
+        <mat-error *ngIf="getFormControls['productName'].errors">
+          <span *ngIf="getFormControls['productName'].errors.required">
+            Obligatoire<br>
+          </span>
+
+        </mat-error>
+      </mat-form-field>
+    </div>
+    
+    <div fxLayout="row">
+      <mat-form-field fxFlex="100">
+        <input type="text" [(ngModel)]="product.fournisseur" formControlName="fournisseur" matInput
+          placeholder="Fournisseur" [matAutocomplete]="auto1" required>
+        <mat-autocomplete #auto1="matAutocomplete">
+          <mat-option *ngFor="let option of options" [value]="option">
+              {{option}}
+          </mat-option>
+      </mat-autocomplete>
+        <mat-error *ngIf="getFormControls['fournisseur'].errors">
+          <span *ngIf="getFormControls['fournisseur'].errors.required">
+            Obligatoire<br>
+          </span>
+
+        </mat-error>
+
+        
+      </mat-form-field>
+    </div>
+
+    <div fxLayout="row">
+      <mat-form-field fxFlex="100">
+        <input type="text" [(ngModel)]="product.price" formControlName="price" matInput placeholder="price" required>
+        <mat-error *ngIf="getFormControls['price'].errors">
+          <span *ngIf="getFormControls['price'].errors.required">
+            Obligatoire<br>
+          </span>
+
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+ 
+
+    <div fxLayout="row">
+      <mat-form-field fxFlex="100">
+        <textarea  type="text" [(ngModel)]="product.description" formControlName="description" matInput
+          placeholder="description"></textarea>
+
+      </mat-form-field>
+    </div>
+
+    <div fxLayout="row">
+      <mat-form-field fxFlex="100">
+        <textarea type="text" [(ngModel)]="product.commentaire" formControlName="commentaire" matInput
+          placeholder="commentaire"></textarea>
+
+      </mat-form-field>
+
+    </div>
+
+
+
+  </mat-dialog-content>
+
+
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button *ngIf="product.productID" [mat-dialog-close]="true" type="submit"
+      [disabled]="addProductForm.invalid">Update</button>
+    <button mat-button *ngIf="!product.productID" [mat-dialog-close]="true" type="submit"
+      [disabled]="addProductForm.invalid">Add</button>
+  </mat-dialog-actions>
+
+</form>

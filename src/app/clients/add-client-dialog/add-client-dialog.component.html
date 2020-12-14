@@ -1,0 +1,59 @@
+<form [formGroup]="addClientForm" (ngSubmit)="addOrUpdateClient()">
+
+    <div class="nl-Dialog--header">
+      <h2 mat-dialog-title>Add a client </h2>
+    </div>
+    <mat-dialog-content>
+      <div fxLayout="row">
+        <mat-form-field fxFlex="100">
+          <input type="text" [(ngModel)]="client.fullname" formControlName="fullname" matInput
+            placeholder="fullname" [ngClass]="{'is-invalid': submitted && getFormControls['fullname'].errors}"
+            required>
+          <mat-error *ngIf="getFormControls['fullname'].errors">
+            <span *ngIf="getFormControls['fullname'].errors.required">
+              Obligatoire<br>
+            </span>
+  
+          </mat-error>
+        </mat-form-field>
+      </div>
+  
+      
+  
+      <div fxLayout="row">
+        <mat-form-field fxFlex="100">
+          <input type="text" [(ngModel)]="client.email" formControlName="email" matInput
+            placeholder="Email" email >
+            <mat-error *ngIf="getFormControls['email'].errors">
+              <span *ngIf="getFormControls['email'].errors.email">
+                please use a valid email<br>
+              </span>
+    
+            </mat-error>
+        </mat-form-field>
+      </div>
+      
+      <div fxLayout="row">
+        <mat-form-field fxFlex="100">
+          <input type="text" [(ngModel)]="client.num" formControlName="num" matInput
+            placeholder="Numero de telephone" >
+          
+        </mat-form-field>
+      </div>
+  
+      
+  
+  
+  
+    </mat-dialog-content>
+  
+  
+    <mat-dialog-actions align="end">
+      <button mat-button mat-dialog-close>Cancel</button>
+      <button mat-button *ngIf="client.clientID" [mat-dialog-close]="true" type="submit"
+        [disabled]="addClientForm.invalid">Update</button>
+      <button mat-button *ngIf="!client.clientID" [mat-dialog-close]="true" type="submit"
+        [disabled]="addClientForm.invalid">Add</button>
+    </mat-dialog-actions>
+  
+  </form>

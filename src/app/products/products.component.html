@@ -1,1 +1,66 @@
-<p>products works!</p>
+<h1 *ngIf="isLoggedIn">Liste des produits</h1>
+
+<div class="row " *ngIf="isLoggedIn">
+  <button mat-raised-button (click)="addProduct()" color="primary">Add</button>
+</div>
+
+
+
+<mat-table  *ngIf="isLoggedIn" [dataSource]="dataSource" class="mat-elevation-z8 material-table" >
+  <!-- productName Column -->
+  <ng-container matColumnDef="productName">
+    <mat-header-cell *matHeaderCellDef> Nom du produit </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.productName}} </mat-cell>
+  </ng-container>
+  
+  <!-- fournisseur Column -->
+  <ng-container matColumnDef="fournisseur">
+    <mat-header-cell *matHeaderCellDef> Fournisseur </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.fournisseur}} </mat-cell>
+  </ng-container>
+
+  <!-- price Column -->
+  <ng-container matColumnDef="price">
+    <mat-header-cell *matHeaderCellDef> Prix </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.price}} </mat-cell>
+  </ng-container>
+
+  
+
+  <!-- description Column -->
+  <ng-container matColumnDef="description">
+    <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.description}} </mat-cell>
+  </ng-container>
+
+  <!-- commentaire Column -->
+  <ng-container matColumnDef="commentaire">
+    <mat-header-cell *matHeaderCellDef> Commentaire </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.commentaire}} </mat-cell>
+  </ng-container>
+
+  <!-- Action Column -->
+  <ng-container matColumnDef="action">
+    <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
+    <mat-cell *matCellDef="let element">
+
+      <div class="delete button action">
+        <button mat-mini-fab color="accent" (click)="deleteProduct(element)" aria-label="delete button">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+
+      <div class="edit button action">
+        <button mat-mini-fab color="accent" (click)="uppdateProduct(element)" aria-label="edit button">
+          <mat-icon>edit</mat-icon>
+        </button>
+      </div>
+
+
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  
+</mat-table>

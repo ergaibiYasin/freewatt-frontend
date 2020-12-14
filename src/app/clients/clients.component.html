@@ -1,0 +1,57 @@
+<h1 *ngIf="isLoggedIn">Liste des Clients</h1>
+
+<div class="row " *ngIf="isLoggedIn">
+  <button mat-raised-button (click)="addClient()" color="primary">Add</button>
+</div>
+
+
+
+
+<!-- Table -->
+
+<mat-table *ngIf="isLoggedIn" [dataSource]="dataSource" class="mat-elevation-z8 material-table">
+  <!-- Nom Column -->
+  <ng-container matColumnDef="fullname">
+    <mat-header-cell *matHeaderCellDef> Fullname </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.fullname}} </mat-cell>
+  </ng-container>
+
+  
+
+  <!-- email Column -->
+  <ng-container matColumnDef="email">
+    <mat-header-cell *matHeaderCellDef> email </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
+  </ng-container>
+
+  <!-- Numero Column -->
+  <ng-container matColumnDef="num">
+    <mat-header-cell *matHeaderCellDef> Numero de telephone </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.num}} </mat-cell>
+  </ng-container>
+
+  
+  <!-- Action Column -->
+  <ng-container matColumnDef="action">
+    <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
+    <mat-cell *matCellDef="let element">
+
+      <div class="delete button action">
+        <button mat-mini-fab color="accent" (click)="deleteClient(element)" aria-label="delete button">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+
+      <div class="edit button action">
+        <button mat-mini-fab color="accent" (click)="uppdateClient(element)" aria-label="edit button">
+          <mat-icon>edit</mat-icon>
+        </button>
+      </div>
+
+
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>

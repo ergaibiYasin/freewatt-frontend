@@ -1,0 +1,107 @@
+<form [formGroup]="addSaleForm" (ngSubmit)="addOrUpdateSale()">
+
+    <div class="nl-Dialog--header">
+        <h2 mat-dialog-title>Add a Sale </h2>
+    </div>
+    <mat-dialog-content>
+        <div fxLayout="row">
+            <mat-form-field fxFlex="100">
+                <input type="text" [(ngModel)]="sale.client" formControlName="client" matInput
+                    placeholder="client" [matAutocomplete]="auto1" 
+                    [ngClass]="{'is-invalid': submitted && getFormControls['client'].errors}" required>
+                    <mat-autocomplete #auto1="matAutocomplete">
+                        <mat-option *ngFor="let option of clientOptions" [value]="option">
+                            {{option}}
+                        </mat-option>
+                    </mat-autocomplete>
+                <mat-error *ngIf="getFormControls['client'].errors">
+                    <span *ngIf="getFormControls['client'].errors.required">
+                        Obligatoire<br>
+                    </span>
+
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div fxLayout="row">
+            <mat-form-field fxFlex="100">
+                <input type="text" [(ngModel)]="sale.product" formControlName="product" matInput
+                    placeholder="product" [matAutocomplete]="auto2"  required>
+                    <mat-autocomplete #auto2="matAutocomplete">
+                        <mat-option *ngFor="let option of productOptions" [value]="option">
+                            {{option}}
+                        </mat-option>
+                    </mat-autocomplete>
+                <mat-error *ngIf="getFormControls['product'].errors">
+                    <span *ngIf="getFormControls['product'].errors.required">
+                        Obligatoire<br>
+                    </span>
+
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div fxLayout="row">
+            <mat-form-field fxFlex="100">
+                <input type="text" [(ngModel)]="sale.unitPrice" formControlName="unitPrice" matInput
+                    placeholder="unitPrice" required>
+                <mat-error *ngIf="getFormControls['unitPrice'].errors">
+                    <span *ngIf="getFormControls['unitPrice'].errors.required">
+                        Obligatoire<br>
+                    </span>
+
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div fxLayout="row">
+            <mat-form-field fxFlex="100">
+                <input type="text" [(ngModel)]="sale.quantity" formControlName="quantity" matInput
+                    placeholder="quantity" required>
+                <mat-error *ngIf="getFormControls['quantity'].errors">
+                    <span *ngIf="getFormControls['quantity'].errors.required">
+                        Obligatoire<br>
+                    </span>
+
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div fxLayout="row">
+            <mat-form-field appearance="fill">
+                <mat-label>Choose a date</mat-label>
+                <input [(ngModel)]="sale.saleDate" formControlName="saleDate" matInput [matDatepicker]="picker" required>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-error *ngIf="getFormControls['saleDate'].errors">
+                    <span *ngIf="getFormControls['saleDate'].errors.required">
+                        Obligatoire<br>
+                    </span>
+
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div fxLayout="row">
+            <mat-form-field fxFlex="100">
+                <textarea type="text" [(ngModel)]="sale.comment" formControlName="comment" matInput
+                    placeholder="comment"></textarea>
+
+            </mat-form-field>
+
+        </div>
+
+
+
+    </mat-dialog-content>
+
+
+    <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close>Cancel</button>
+        <button mat-button *ngIf="sale.saleID" [mat-dialog-close]="true" type="submit"
+            [disabled]="addSaleForm.invalid">Update</button>
+        <button mat-button *ngIf="!sale.saleID" [mat-dialog-close]="true" type="submit"
+            [disabled]="addSaleForm.invalid">Add</button>
+    </mat-dialog-actions>
+
+</form>

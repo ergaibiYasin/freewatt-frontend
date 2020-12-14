@@ -1,0 +1,20 @@
+
+  .mat-column-comment {
+    padding: 10px;
+    white-space: unset !important;
+    flex: 0 0 28% !important;
+    word-break: break-word;
+  }
+  
+  .action {
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  mat-card{
+    height: 50px;
+    width: 50px;
+    background-color: aqua;
+    text-align: center;
+  }

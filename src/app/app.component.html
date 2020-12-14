@@ -1,0 +1,65 @@
+
+<!--                 sideBar             -->
+
+<div class="nav-container"  >
+  <mat-toolbar color="primary" class="nav-toolbar">
+    <button mat-icon-button (click)="snav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <h1 class="nav-app-name"> FREEWATT </h1>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="nav-sidenav-container">
+    <mat-sidenav #snav  fixedTopGap="56">
+      <mat-nav-list>
+        <!-- <mat-list-item  routerLink="/dashboard" routerLinkActive="active">
+          <mat-icon>dashboard</mat-icon> Dashboard
+        </mat-list-item> -->
+        <br>
+        <div class="profile-card" *ngIf="isLoggedIn">
+          <div class="header">
+            <h2>{{username}}</h2>
+            <h3>{{email}}</h3>
+            <h4>{{role}}</h4>
+          </div>
+          <!-- <img class="profile-image" src="https://plchldr.co/i/150x150" alt="name"> -->
+        </div>
+        
+        <mat-list-item  routerLink="/products" routerLinkActive="active">
+          <mat-icon>ballot</mat-icon> Products
+        </mat-list-item>
+        
+        <mat-list-item  routerLink="/sales" routerLinkActive="active">
+          <mat-icon>point_of_sale</mat-icon> Sales
+        </mat-list-item>
+        
+        <mat-list-item  routerLink="/clients" routerLinkActive="active">
+          <mat-icon>people</mat-icon> clients
+        </mat-list-item>
+        
+        <mat-list-item  routerLink="/fournisseurs" routerLinkActive="active">
+          <mat-icon>local_shipping</mat-icon> Fournisseurs
+        </mat-list-item>
+        
+        <mat-list-item *ngIf="isAdmin" routerLink="/signup" routerLinkActive="active" >
+          <mat-icon>add_circle</mat-icon> Add user
+        </mat-list-item>
+
+
+        
+        <mat-list-item *ngIf="isLoggedIn"  routerLinkActive="active" (click)="logout()">
+          <mat-icon>logout</mat-icon> logout
+        </mat-list-item>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+      
+    </mat-sidenav-content>
+    
+  </mat-sidenav-container>
+</div>
+
+
+

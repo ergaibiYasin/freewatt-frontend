@@ -1,0 +1,81 @@
+<h1 *ngIf="isLoggedIn">Liste des ventes</h1>
+
+<div *ngIf="isLoggedIn" class="row ">
+  <button mat-raised-button (click)="addSale()" color="primary">Add</button>
+</div>
+<!-- <div class="total" [dataSource]="dataSource">
+  <mat-card> {{getTotal(dataSource) | currency:'INR':'MAD'}} </mat-card>
+
+</div> -->
+
+
+
+<!-- Table -->
+
+<mat-table *ngIf="isLoggedIn" [dataSource]="dataSource" class="mat-elevation-z8 material-table">
+  <!-- customer Column -->
+  <ng-container matColumnDef="client">
+    <mat-header-cell *matHeaderCellDef> Nom du client </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.client}} </mat-cell>
+  </ng-container>
+  
+  <!-- productName Column -->
+  <ng-container matColumnDef="product">
+    <mat-header-cell *matHeaderCellDef> Nom du produit </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.product}} </mat-cell>
+  </ng-container>
+
+  <!-- price Column -->
+  <ng-container matColumnDef="unitPrice">
+    <mat-header-cell *matHeaderCellDef> Prix de l'unitee </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.unitPrice}} </mat-cell>
+  </ng-container>
+
+  <!-- quantite Column -->
+  <ng-container matColumnDef="quantity">
+    <mat-header-cell *matHeaderCellDef> quantite </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.quantity}} </mat-cell>
+  </ng-container>
+  
+  <!-- total Column -->
+  <ng-container matColumnDef="total">
+    <mat-header-cell *matHeaderCellDef> total payé </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.total}} </mat-cell>
+  </ng-container>
+
+  <!-- Date Column -->
+  <ng-container matColumnDef="saleDate">
+    <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.saleDate | date}} </mat-cell>
+  </ng-container>
+
+  <!-- commentaire Column -->
+  <ng-container matColumnDef="comment">
+    <mat-header-cell *matHeaderCellDef> Commentaire </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.comment}} </mat-cell>
+  </ng-container>
+
+  <!-- Action Column -->
+  <ng-container matColumnDef="action">
+    <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
+    <mat-cell *matCellDef="let element">
+
+      <div class="delete button action">
+        <button mat-mini-fab color="accent" (click)="deleteSale(element)" aria-label="delete button">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+
+      <div class="edit button action">
+        <button mat-mini-fab color="accent" (click)="uppdateSale(element)" aria-label="edit button">
+          <mat-icon>edit</mat-icon>
+        </button>
+      </div>
+
+
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
