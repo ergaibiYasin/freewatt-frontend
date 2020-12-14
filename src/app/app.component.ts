@@ -12,6 +12,8 @@ export class AppComponent  implements OnInit {
   title = 'front-end';
   
   private role: string[];
+  private username: string[];
+  private email: string[];
   isLoggedIn = false;
   isAdmin = false;
 
@@ -22,19 +24,24 @@ export class AppComponent  implements OnInit {
 
   ngOnInit(): void{
     this.isLoggedIn = !!this.tokenStorageService.getToken();
-
     if (this.isLoggedIn) {
       const user = this.tokenStorageService.getUser();
       this.role = user.role;
+      this.username = user.username;
+      this.email = user.email;
       this.isAdmin = this.role.includes('Admin');
     }
   }
 
   logout(): void {
     this.tokenStorageService.signOut();
-    window.location.reload()
+    window.location.assign("/login")
   }
-  
+
+  loginPage(): void{
+    window.location.assign("/login")
+  }
+
   
 
 }

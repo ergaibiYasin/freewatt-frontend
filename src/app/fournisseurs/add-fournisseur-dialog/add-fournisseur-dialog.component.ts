@@ -31,7 +31,7 @@ export class AddFournisseurDialogComponent implements OnInit {
     this.addFournisseurForm = this.formBuilder.group({
       nom: ['', Validators.required],
       prenom: ['', Validators.required],
-      email: ['', Validators.required],
+      email: ['',  Validators.required, Validators.email],
       num: ['', Validators.required],
     })
   }

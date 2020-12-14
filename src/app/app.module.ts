@@ -36,6 +36,8 @@ import { FournisseursComponent } from './fournisseurs/fournisseurs.component';
 import { AddFournisseurDialogComponent } from './fournisseurs/add-fournisseur-dialog/add-fournisseur-dialog.component';
 import { ClientsComponent } from './clients/clients.component';
 import { AddClientDialogComponent } from './clients/add-client-dialog/add-client-dialog.component';
+import { AreaComponent } from './shared/widgets/area/area.component';
+import { HighchartsChartModule } from 'highcharts-angular';
 
 
 
@@ -56,6 +58,7 @@ import { AddClientDialogComponent } from './clients/add-client-dialog/add-client
     AddFournisseurDialogComponent,
     ClientsComponent,
     AddClientDialogComponent,
+    AreaComponent,
     
   ],
   imports: [
@@ -79,6 +82,7 @@ import { AddClientDialogComponent } from './clients/add-client-dialog/add-client
     MatDatepickerModule,
     MatNativeDateModule,
     MatAutocompleteModule,
+    HighchartsChartModule,
 
     
     RouterModule.forRoot([

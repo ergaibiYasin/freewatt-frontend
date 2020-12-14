@@ -33,13 +33,17 @@
       <div fxLayout="row">
         <mat-form-field fxFlex="100">
           <input type="text" [(ngModel)]="fournisseur.email" formControlName="email" matInput
-            placeholder="Enail" required>
+            placeholder="Email" required email>
+
           <mat-error *ngIf="getFormControls['email'].errors">
             <span *ngIf="getFormControls['email'].errors.required">
               Obligatoire<br>
             </span>
-  
+            <span *ngIf="getFormControls['email'].errors.email">
+              please use a valid email<br>
+            </span>
           </mat-error>
+
         </mat-form-field>
       </div>
       

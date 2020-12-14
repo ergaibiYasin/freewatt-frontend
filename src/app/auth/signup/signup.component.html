@@ -1,7 +1,7 @@
 <div fxLayoutAlign="center center" class="mainDiv">
     <mat-card class="signupCard">
 
-        <mat-toolbar class="title" color="success">signup</mat-toolbar>
+        <mat-toolbar class="title" color="success">Add user</mat-toolbar>
 
         
         <mat-card-content class="content">
@@ -20,12 +20,14 @@
                 
                 <div fxLayout="row">
                     <mat-form-field fxFlex="100">
-                        <input type="text" [(ngModel)]="user.email" formControlName="email" matInput placeholder="email" required>
+                        <input type="text" [(ngModel)]="user.email" formControlName="email" matInput placeholder="email" required email>
                         <mat-error *ngIf="getFormControls['email'].errors">
                             <span *ngIf="getFormControls['email'].errors.required">
                             Obligatoire<br>
                             </span>
-                
+                            <span *ngIf="getFormControls['email'].errors.email">
+                                please use a valid email<br>
+                            </span>
                         </mat-error>
                     </mat-form-field>
                 </div>
@@ -61,7 +63,7 @@
                     </mat-form-field>
 
                 </div>
-                <button mat-raised-button   type="submit" color="primary" [disabled]="signupForm.invalid">signup</button>
+                <button class="add-button" mat-raised-button   type="submit" color="primary" [disabled]="signupForm.invalid">Add user</button>
             </form>
         </mat-card-content>
         <mat-card-actions>

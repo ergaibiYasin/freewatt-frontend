@@ -1,12 +1,22 @@
 .loginCard {
     max-width: 400px;
     margin: auto;
-  }
+}
   
-  .example-header-image {
+.example-header-image {
     background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
     background-size: cover;
-  }
-  .mainDiv{
+}
+
+.mainDiv{
     margin-top: 100px;
+}
+
+.login-button{
+  float: right;
+  margin-left: -50%;
+}
+
+form{
+  overflow: hidden;
 }

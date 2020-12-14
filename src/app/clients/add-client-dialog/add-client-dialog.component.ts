@@ -28,7 +28,7 @@ export class AddClientDialogComponent implements OnInit {
     }
     this.addClientForm = this.formBuilder.group({
       fullname: ['', Validators.required],
-      email: [''],
+      email: ['', Validators.email],
       num: [''],
     })
   }
