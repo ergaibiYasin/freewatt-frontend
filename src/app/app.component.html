@@ -12,12 +12,21 @@
   <mat-sidenav-container class="nav-sidenav-container">
     <mat-sidenav #snav  fixedTopGap="56">
       <mat-nav-list>
-        <mat-list-item  routerLink="/dashboard" routerLinkActive="active">
+        <!-- <mat-list-item  routerLink="/dashboard" routerLinkActive="active">
           <mat-icon>dashboard</mat-icon> Dashboard
-        </mat-list-item>
+        </mat-list-item> -->
+        <br>
+        <div class="profile-card" *ngIf="isLoggedIn">
+          <div class="header">
+            <h2>{{username}}</h2>
+            <h3>{{email}}</h3>
+            <h4>{{role}}</h4>
+          </div>
+          <!-- <img class="profile-image" src="https://plchldr.co/i/150x150" alt="name"> -->
+        </div>
         
         <mat-list-item  routerLink="/products" routerLinkActive="active">
-          <mat-icon>ballot</mat-icon> Liste des produits
+          <mat-icon>ballot</mat-icon> Products
         </mat-list-item>
         
         <mat-list-item  routerLink="/sales" routerLinkActive="active">
@@ -33,7 +42,7 @@
         </mat-list-item>
         
         <mat-list-item *ngIf="isAdmin" routerLink="/signup" routerLinkActive="active" >
-          <mat-icon>add_circle</mat-icon> signup
+          <mat-icon>add_circle</mat-icon> Add user
         </mat-list-item>
 
 

@@ -23,8 +23,13 @@
       <div fxLayout="row">
         <mat-form-field fxFlex="100">
           <input type="text" [(ngModel)]="client.email" formControlName="email" matInput
-            placeholder="Email" >
-          
+            placeholder="Email" email >
+            <mat-error *ngIf="getFormControls['email'].errors">
+              <span *ngIf="getFormControls['email'].errors.email">
+                please use a valid email<br>
+              </span>
+    
+            </mat-error>
         </mat-form-field>
       </div>
       

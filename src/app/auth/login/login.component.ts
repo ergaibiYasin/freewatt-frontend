@@ -79,7 +79,7 @@ export class LoginComponent implements OnInit {
   }
 
   loginPage(): void{
-    window.location.assign("")
+    window.location.assign("/products")
   }
 
 
